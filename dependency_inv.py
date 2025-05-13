@@ -17,7 +17,7 @@ class RelationshipBrowser(ABC):
 		pass
 
 
-class Relationships(RelationshipBrowser):
+class Relationships(RelationshipBrowser): # low level module
 	def __init__(self):
 		self.relations = []
 
@@ -42,7 +42,7 @@ class RelationshipBrowser(ABC):
 
 
 
-class Research:
+class Research: # high level module
 	# def __init__(self, relationships):
 	# 	relations = relationships.relations
 	# 	for r in relations:
