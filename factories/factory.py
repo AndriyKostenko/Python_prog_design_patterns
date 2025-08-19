@@ -24,21 +24,39 @@ class Point:
     @staticmethod
     def new_polar_point(rho, theta):
         return Point(rho * cos(theta), rho * sin(theta))
-    # def __init__(self, a, b, system=CoordinateSystem.CARTESIAN):
-    #     if system == CoordinateSystem.CARTESIAN:
-    #         self.x = a
-    #         self.y = b
-    #     elif system == CoordinateSystem.POLAR:
-    #         self.x = a * sin(b)
-    #         self.y = a * cos(b)
-            
+        
     def __repr__(self):
         return f"Point({self.x}, {self.y})"
     
     def __str__(self):
         return f"Point({self.x}, {self.y})"
     
-p = Point(2,3)
-p2 = Point.new_polar_point(1, 2)
+p = Point(2, 3)
+p2 = Point(1, 2)
+
+for _ in range(5):
+    x = Point()
+    
+p3 = p.new_polar_point(2,3)
 
 print(p, p2)
+
+
+
+
+"""
+1. check 'else, yield, break, continue, return' in for/while
+2. python patterns ~= 20pcs 
+
+
+"""
+
+x = 5
+var = lambda *a, x = x : a[0] + x
+   
+def some_zamukanie():
+    x = 5
+    def some_wrapper(x):
+        return x + 1
+    
+some_zamukanie()
