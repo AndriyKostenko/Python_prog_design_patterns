@@ -35,27 +35,17 @@ class Relationships(RelationshipBrowser): # low level module
 			if r[0].name == name and r[1] == Relationship.PARENT:
 				yield r[2].name
 
-class RelationshipBrowser(ABC):
-	@abstractmethod
-	def find_all_children_of(self, name):
-		pass
-
-
 
 class Research: # high level module
-	# def __init__(self, relationships):
-	# 	relations = relationships.relations
-	# 	for r in relations:
-	# 		if r[0].name == 'John' and r[1] == Relationship.PARENT:
-	# 			print(f'John has a child called {r[2].name}')
-
 	def __init__(self, browser):
 		for p in browser.find_all_children_of('John'):
 			print(f'John has a child called {p}')
 
+
 parent = Person('John')
 child_1 = Person('Chris')
 child_2 = Person('Matt')
+
 
 relationships = Relationships()
 relationships.add_parent_and_child(parent, child_1)

@@ -4,12 +4,12 @@
 class HtmlElement:
 	indent_size = 2
 
-	def __init__(self, name='', text=''):
+	def __init__(self, name: str='', text: str=''):
 		self.text = text
 		self.name = name 
 		self.elements = [] 
 
-	def __str(self, indent):
+	def __str(self, indent: int):
 		lines = []
 		i = ' ' * (indent * self.indent_size)
 		lines.append(f'{i}<{self.name}>')
