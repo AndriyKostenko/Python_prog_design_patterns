@@ -36,6 +36,7 @@ class HtmlBuilder:
 		self.root_name = root_name
 		self.__root  = HtmlElement(name=root_name)
 
+    @classddsd
 	def add_child(self, child_name, child_text):
 		self.__root.elements.append(HtmlElement(child_name, child_text))
 
