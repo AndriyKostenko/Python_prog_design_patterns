@@ -2,6 +2,7 @@
 # cqs
 
 from enum import Enum
+from abc import ABC
 
 
 class Event(list):
@@ -49,11 +50,31 @@ class Creature:
 		self.game.perform_query(self, q)
 		return q.value
 		
-
 	def __str__(self) -> str:
 		return f"{self.name} (attack: {self.attack}/ defense: {self.defense})"
 
 
-game = Game()
-goblin = Creature(game=game, name='Strong Goblin', attack=2, defense=2)
-print(goblin)
+class CreatureModifier(ABC):
+    def __init__(self, game, creature):
+        self.creature = creature
+        self.game = game
+        self.game.queries.append(self.handle)
+        
+    def handle(self, sender, query):
+        pass
+
+
+class DoubleAttackModifier(CreatureModifier):
+    def handle(self, sender, query):
+        if sender.name == self.creature.name and \
+            query.what_to_query == WhatToQuery.ATTACK:
+                query.value *= 2
+
+
+if __name__ == "__main__":
+    game = Game()
+    goblin = Creature(game=game, name='Strong Goblin', attack=2, defense=2)
+    print(goblin)
+    
+    dam = DoubleAttackModifier(game, goblin)
+    print(goblin)
