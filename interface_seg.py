@@ -34,8 +34,8 @@ class MultiFunctionMachine(MultiFunctionDevice):
 		self.scanner = scanner
 		self.fax = fax
 
-	def print(self, document):
-		self.printer.print(document)
+	def print_(self, document):
+		self.printer.print_(document)
 
 	def scan(self, document):
 		self.scanner.scan(document)
